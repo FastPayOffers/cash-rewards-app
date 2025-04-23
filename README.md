@@ -12,6 +12,6 @@ A high-converting landing page for **PIN submit offers** (LoadedMobi, etc.).
 2. Deploy on GitHub Pages.  
 
 ## 🔗 Live Demo  
-👉 [https://rewardhuboffers.github.io/reward-landing-page/](https://fastpayoffers.github.io/cash-rewards-app/)  
+👉 [https://fastpayoffers.github.io/cash-rewards-app/](https://fastpayoffers.github.io/cash-rewards-app/)  
 
 📌 **Note**: For **USA/UK/CA users only**.  
