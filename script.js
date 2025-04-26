@@ -4,7 +4,7 @@ document.getElementById("cta-button").addEventListener("click", function() {
   this.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Processing...';
   
   setTimeout(() => {
-    window.location.href = "https://smrturl.co/a/sa27c23060a/10165?s1=";
+    window.location.href = "https://smrturl.co/a/sa27c23060a/86?s1=";
   }, 1500);
 });
 
