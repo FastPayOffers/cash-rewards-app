@@ -15,6 +15,40 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    /* إضافة أنماط مخصصة للصورة */
+    .image-placeholder {
+      position: relative;
+      overflow: hidden;
+      border-radius: 15px;
+      margin-bottom: 25px;
+      max-height: 300px; /* تحديد أقصى ارتفاع */
+    }
+    
+    .image-placeholder img {
+      width: 100%;
+      height: auto;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.3s ease;
+    }
+    
+    .image-placeholder:hover img {
+      transform: scale(1.02);
+    }
+    
+    @media (max-width: 768px) {
+      .image-placeholder {
+        max-height: 250px;
+      }
+    }
+    
+    @media (max-width: 480px) {
+      .image-placeholder {
+        max-height: 200px;
+      }
+    }
+  </style>
 </head>
 <body>
   <div class="blob"></div> <!-- Animated background element -->
@@ -27,12 +61,10 @@
       <p>Join <span id="user-count">12,487</span> people earning today</p>
     </header>
 
-    <!-- Video Placeholder -->
-    <div class="video-placeholder" id="video-placeholder">
-      <div class="play-button">
-        <i class="fas fa-play"></i>
-      </div>
-      <div class="video-overlay">
+    <!-- Image Placeholder -->
+    <div class="image-placeholder">
+      <img src="https://i.imgur.com/0FPTpqG.jpeg" alt="FastPay Offers">
+      <div class="image-overlay">
         <p>How it works</p>
         <div class="timer" id="timer">Offer expires in: <span>05:00</span></div>
       </div>
@@ -42,9 +74,9 @@
     <div class="benefits">
       <div class="benefit-item">
         <div class="icon-box">
-          <i class="fas fa-mobile-alt"></i>
+          <i class="fas fa-envelope"></i>
         </div>
-        <p>Just enter your phone & confirm PIN</p>
+        <p>Enter your email or <strong>ZIP code</strong></p>
       </div>
       <div class="benefit-item">
         <div class="icon-box">
@@ -62,7 +94,7 @@
 
     <!-- CTA Button -->
     <button id="cta-button">
-      <span class="btn-text">👉 Download Now (Free)</span>
+      <span class="btn-text">👉 Register Now (Free)</span>
       <span class="btn-arrow">→</span>
     </button>
 
@@ -81,6 +113,8 @@
     <!-- Testimonials -->
     <div class="testimonials">
       <h3>Real people, real payments:</h3>
+      
+      <!-- Testimonial 1 -->
       <div class="testimonial">
         <img src="https://randomuser.me/api/portraits/women/43.jpg" alt="Sarah" />
         <div class="testimonial-content">
@@ -98,6 +132,106 @@
           </div>
         </div>
       </div>
+      
+      <!-- Testimonial 2 -->
+      <div class="testimonial" style="margin-top: 15px;">
+        <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="John" />
+        <div class="testimonial-content">
+          <div class="stars">
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star-half-alt"></i>
+          </div>
+          <p>"Received $30 instantly. Very simple process!"</p>
+          <div class="user-info">
+            <strong>John D.</strong>
+            <span>Verified User • Canada</span>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Testimonial 3 -->
+      <div class="testimonial" style="margin-top: 15px;">
+        <img src="https://randomuser.me/api/portraits/women/65.jpg" alt="Emily" />
+        <div class="testimonial-content">
+          <div class="stars">
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+          </div>
+          <p>"I was skeptical at first, but it really works! Got $40."</p>
+          <div class="user-info">
+            <strong>Emily R.</strong>
+            <span>Verified User • UK</span>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Testimonial 4 -->
+      <div class="testimonial" style="margin-top: 15px;">
+        <img src="https://randomuser.me/api/portraits/men/75.jpg" alt="Michael" />
+        <div class="testimonial-content">
+          <div class="stars">
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+          </div>
+          <p>"Best money-making app I've tried. $50 in my account now!"</p>
+          <div class="user-info">
+            <strong>Michael T.</strong>
+            <span>Verified User • USA</span>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Testimonial 5 -->
+      <div class="testimonial" style="margin-top: 15px;">
+        <img src="https://randomuser.me/api/portraits/women/33.jpg" alt="Jessica" />
+        <div class="testimonial-content">
+          <div class="stars">
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+          </div>
+          <p>"Paid for my groceries with this extra cash. Amazing!"</p>
+          <div class="user-info">
+            <strong>Jessica L.</strong>
+            <span>Verified User • Canada</span>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Testimonial 6 -->
+      <div class="testimonial" style="margin-top: 15px;">
+        <img src="https://randomuser.me/api/portraits/men/55.jpg" alt="David" />
+        <div class="testimonial-content">
+          <div class="stars">
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+          </div>
+          <p>"Legit and fast payment. Will recommend to all my friends."</p>
+          <div class="user-info">
+            <strong>David P.</strong>
+            <span>Verified User • UK</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Footer Text -->
+    <div class="footer-text">
+      <p>© 2023 FastPay Rewards. All rights reserved. <a href="#">Terms</a> | <a href="#">Privacy</a></p>
     </div>
   </div>
 
