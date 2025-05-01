@@ -1,57 +1,67 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Get $50 instantly! Join thousands earning cash today.">
   <title>Get $50 Instantly! | Limited Offer</title>
-  <!-- Favicon Links -->
-  <link rel="icon" href="secure.jpg" type="image/jpeg">
-  <link rel="shortcut icon" href="secure.jpg" type="image/jpeg">
-  <!-- Fallback for browsers that prefer .ico -->
+  
+  <!-- Favicon -->
   <link rel="icon" href="favicon.ico" type="image/x-icon">
-  <!-- Stylesheets -->
-  <link rel="stylesheet" href="style.css" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="apple-touch-icon" href="apple-touch-icon.png">
+  
+  <!-- Preload -->
+  <link rel="preload" href="style.css" as="style">
+  <link rel="preload" href="fastpay.jpg" as="image">
+  
+  <!-- Styles -->
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+  
   <style>
-    /* إضافة أنماط مخصصة للصورة */
+    /* Critical CSS */
+    body {
+      font-family: 'Poppins', sans-serif;
+      margin: 0;
+      background: #f5f7fa;
+      color: #2d3436;
+      line-height: 1.6;
+    }
+    .container {
+      max-width: 600px;
+      margin: 0 auto;
+      padding: 20px;
+    }
     .image-placeholder {
       position: relative;
-      overflow: hidden;
       border-radius: 15px;
+      overflow: hidden;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.1);
       margin-bottom: 25px;
-      max-height: 300px; /* تحديد أقصى ارتفاع */
     }
-    
     .image-placeholder img {
       width: 100%;
       height: auto;
-      object-fit: cover;
       display: block;
-      transition: transform 0.3s ease;
     }
-    
-    .image-placeholder:hover img {
-      transform: scale(1.02);
-    }
-    
-    @media (max-width: 768px) {
-      .image-placeholder {
-        max-height: 250px;
-      }
-    }
-    
-    @media (max-width: 480px) {
-      .image-placeholder {
-        max-height: 200px;
-      }
+    #cta-button {
+      display: block;
+      width: 100%;
+      padding: 15px;
+      background: #6c5ce7;
+      color: white;
+      border: none;
+      border-radius: 10px;
+      font-weight: 600;
+      font-size: 18px;
+      margin: 25px 0;
+      cursor: pointer;
     }
   </style>
 </head>
 <body>
-  <div class="blob"></div> <!-- Animated background element -->
+  <div class="blob"></div>
   
   <div class="container">
     <!-- Header -->
@@ -61,9 +71,16 @@
       <p>Join <span id="user-count">12,487</span> people earning today</p>
     </header>
 
-    <!-- Image Placeholder -->
+    <!-- Main Image -->
     <div class="image-placeholder">
-      <img src="https://i.imgur.com/0FPTpqG.jpeg" alt="FastPay Offers">
+      <img 
+        src="fastpay.jpeg" 
+        alt="FastPay $50 Instant Cash Offer"
+        width="600"
+        height="338"
+        loading="lazy"
+        decoding="async"
+      >
       <div class="image-overlay">
         <p>How it works</p>
         <div class="timer" id="timer">Offer expires in: <span>05:00</span></div>
@@ -93,7 +110,7 @@
     </div>
 
     <!-- CTA Button -->
-    <button id="cta-button">
+    <button id="cta-button" class="cta-pulse">
       <span class="btn-text">👉 Register Now (Free)</span>
       <span class="btn-arrow">→</span>
     </button>
@@ -116,14 +133,10 @@
       
       <!-- Testimonial 1 -->
       <div class="testimonial">
-        <img src="https://randomuser.me/api/portraits/women/43.jpg" alt="Sarah" />
+        <img src="user1.jpg" alt="Sarah K." width="60" height="60" loading="lazy">
         <div class="testimonial-content">
           <div class="stars">
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
           </div>
           <p>"Got $25 in 5 minutes! Can't believe it was this easy."</p>
           <div class="user-info">
@@ -134,15 +147,11 @@
       </div>
       
       <!-- Testimonial 2 -->
-      <div class="testimonial" style="margin-top: 15px;">
-        <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="John" />
+      <div class="testimonial">
+        <img src="user2.jpg" alt="John D." width="60" height="60" loading="lazy">
         <div class="testimonial-content">
           <div class="stars">
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star-half-alt"></i>
+            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
           </div>
           <p>"Received $30 instantly. Very simple process!"</p>
           <div class="user-info">
@@ -153,15 +162,11 @@
       </div>
       
       <!-- Testimonial 3 -->
-      <div class="testimonial" style="margin-top: 15px;">
-        <img src="https://randomuser.me/api/portraits/women/65.jpg" alt="Emily" />
+      <div class="testimonial">
+        <img src="user3.jpg" alt="Emily R." width="60" height="60" loading="lazy">
         <div class="testimonial-content">
           <div class="stars">
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
           </div>
           <p>"I was skeptical at first, but it really works! Got $40."</p>
           <div class="user-info">
@@ -172,15 +177,11 @@
       </div>
       
       <!-- Testimonial 4 -->
-      <div class="testimonial" style="margin-top: 15px;">
-        <img src="https://randomuser.me/api/portraits/men/75.jpg" alt="Michael" />
+      <div class="testimonial">
+        <img src="user4.jpg" alt="Michael T." width="60" height="60" loading="lazy">
         <div class="testimonial-content">
           <div class="stars">
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
           </div>
           <p>"Best money-making app I've tried. $50 in my account now!"</p>
           <div class="user-info">
@@ -191,15 +192,11 @@
       </div>
       
       <!-- Testimonial 5 -->
-      <div class="testimonial" style="margin-top: 15px;">
-        <img src="https://randomuser.me/api/portraits/women/33.jpg" alt="Jessica" />
+      <div class="testimonial">
+        <img src="user5.jpg" alt="Jessica L." width="60" height="60" loading="lazy">
         <div class="testimonial-content">
           <div class="stars">
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
           </div>
           <p>"Paid for my groceries with this extra cash. Amazing!"</p>
           <div class="user-info">
@@ -210,15 +207,11 @@
       </div>
       
       <!-- Testimonial 6 -->
-      <div class="testimonial" style="margin-top: 15px;">
-        <img src="https://randomuser.me/api/portraits/men/55.jpg" alt="David" />
+      <div class="testimonial">
+        <img src="user6.jpg" alt="David P." width="60" height="60" loading="lazy">
         <div class="testimonial-content">
           <div class="stars">
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
           </div>
           <p>"Legit and fast payment. Will recommend to all my friends."</p>
           <div class="user-info">
@@ -229,12 +222,14 @@
       </div>
     </div>
     
-    <!-- Footer Text -->
+    <!-- Footer -->
     <div class="footer-text">
-      <p>© 2023 FastPay Rewards. All rights reserved. <a href="#">Terms</a> | <a href="#">Privacy</a></p>
+      <p>© <script>document.write(new Date().getFullYear())</script> FastPay Rewards. 
+        <a href="terms.html">Terms</a> | <a href="privacy.html">Privacy</a>
+      </p>
     </div>
   </div>
 
-  <script src="script.js"></script>
+  <script src="script.js" defer></script>
 </body>
 </html>
