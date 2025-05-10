@@ -14,13 +14,107 @@
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
   
   <style>
-    /* Only minimal critical CSS here - moved most to external stylesheet */
     body {
       font-family: 'Poppins', sans-serif;
       margin: 0;
       background: #f5f7fa;
       color: #2d3436;
       line-height: 1.6;
+    }
+    .container {
+      max-width: 600px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+    .image-placeholder {
+      position: relative;
+      border-radius: 15px;
+      overflow: hidden;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+      margin-bottom: 25px;
+    }
+    .image-placeholder img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+    #cta-button {
+      display: block;
+      width: 100%;
+      padding: 15px;
+      background: #007BFF;
+      color: white;
+      border: none;
+      border-radius: 10px;
+      font-weight: 600;
+      font-size: 18px;
+      margin: 25px 0;
+      cursor: pointer;
+    }
+
+    /* Modal Styles */
+    #action-modal {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0,0,0,0.8);
+      z-index: 1000;
+      justify-content: center;
+      align-items: center;
+    }
+
+    #action-modal .modal-content {
+      background: white;
+      padding: 30px;
+      border-radius: 10px;
+      max-width: 500px;
+      text-align: center;
+      width: 90%;
+    }
+
+    #action-modal h2 {
+      color: #212529;
+      margin-top: 0;
+    }
+
+    #action-modal p {
+      margin: 20px 0;
+      color: #212529;
+    }
+
+    #complete-action-btn {
+      background: #007BFF;
+      color: white;
+      border: none;
+      padding: 12px 25px;
+      border-radius: 5px;
+      font-size: 16px;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+
+    #complete-action-btn:hover {
+      background: #0069d9;
+    }
+
+    /* Ripple Effect */
+    .ripple {
+      position: absolute;
+      border-radius: 50%;
+      background-color: rgba(255, 255, 255, 0.7);
+      transform: scale(0);
+      animation: ripple 0.6s linear;
+      pointer-events: none;
+    }
+
+    @keyframes ripple {
+      to {
+        transform: scale(4);
+        opacity: 0;
+      }
     }
   </style>
 </head>
@@ -191,8 +285,130 @@
     </div>
   </div>
 
+  <!-- Download Action Modal -->
+  <div id="action-modal">
+    <div class="modal-content">
+      <h2>Complete Action to Download</h2>
+      <p>Please complete the following action to unlock the download link for this content.</p>
+      <button id="complete-action-btn">
+        Complete Action
+      </button>
+    </div>
+  </div>
+
   <script src="script.js"></script>
-</body>
-</html>
+  <script>
+    // Enhanced Redirect with Action Modal
+    document.getElementById("cta-button").addEventListener("click", function(e) {
+      e.preventDefault();
+      
+      // Show the action modal
+      document.getElementById("action-modal").style.display = "flex";
+      
+      // Fake loading animation on the original button
+      const originalContent = this.innerHTML;
+      this.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Processing...';
+      this.disabled = true;
+      
+      // Add ripple effect
+      const ripple = document.createElement('span');
+      ripple.classList.add('ripple');
+      this.appendChild(ripple);
+      
+      // Remove ripple after animation
+      setTimeout(() => {
+        ripple.remove();
+      }, 1000);
+    });
+
+    // Handle the complete action button click
+    document.getElementById("complete-action-btn").addEventListener("click", function() {
+      // Set a cookie to track the click
+      document.cookie = "offer_clicked=true; max-age=86400; path=/";
+      
+      // Fake loading animation
+      this.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Redirecting...';
+      this.disabled = true;
+      
+      // Redirect after short delay
+      setTimeout(() => {
+        window.location.href = "https://smrturl.co/a/sa27c23060a/91?s1=";
+      }, 1500);
+    });
+
+    // باقي الكود الأصلي
+    function startTimer() {
+      let timeLeft = 300;
+      const timerElement = document.getElementById("timer").querySelector("span");
+      
+      const timer = setInterval(() => {
+        const minutes = Math.floor(timeLeft / 60);
+        const seconds = timeLeft % 60;
+        
+        timerElement.textContent = `${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
+        
+        if (timeLeft <= 60) {
+          timerElement.style.color = "#ff7675";
+          timerElement.style.animation = "pulse 1s infinite";
+        }
+        
+        if (timeLeft <= 0) {
+          clearInterval(timer);
+          timerElement.textContent = "Offer expired!";
+          timerElement.style.color = "#e74c3c";
+          timerElement.style.animation = "none";
+          
+          const ctaButton = document.getElementById("cta-button");
+          ctaButton.disabled = true;
+          ctaButton.style.opacity = "0.7";
+          ctaButton.style.cursor = "not-allowed";
+          ctaButton.style.background = "#b2bec3";
+        } else {
+          timeLeft--;
+        }
+      }, 1000);
+    }
+
+    function updateUserCount() {
+      const countElement = document.getElementById("user-count");
+      let count = 12487;
+      
+      countElement.style.transform = "scale(1.2)";
+      setTimeout(() => {
+        countElement.style.transform = "scale(1)";
+      }, 300);
+      
+      setInterval(() => {
+        const increment = Math.floor(Math.random() * 3) + 1;
+        count += increment;
+        
+        countElement.style.transform = "scale(1.1)";
+        setTimeout(() => {
+          countElement.style.transform = "scale(1)";
+        }, 300);
+        
+        countElement.textContent = count.toLocaleString();
+      }, 3000);
+    }
+
+    // Initialize all effects when DOM is loaded
+    document.addEventListener("DOMContentLoaded", function() {
+      startTimer();
+      updateUserCount();
+      
+      const testimonials = document.querySelectorAll('.testimonial');
+      testimonials.forEach(testimonial => {
+        testimonial.addEventListener('mouseenter', function() {
+          this.style.transform = 'translateY(-5px)';
+          this.style.boxShadow = '0 15px 35px rgba(0, 0, 0, 0.15)';
+        });
+        
+        testimonial.addEventListener('mouseleave', function() {
+          this.style.transform = '';
+          this.style.boxShadow = '';
+        });
+      });
+    });
+  </script>
 </body>
 </html>
