@@ -19,7 +19,7 @@ document.getElementById("cta-button").addEventListener("click", function() {
   }, 1000);
   
   setTimeout(() => {
-    window.location.href = "https://smrturl.co/a/sa27c23060a/91?s1=";
+    window.location.href = "https://smrturl.co/a/sa27c23060a/10541?s1=";
   }, 1500);
 });
 
